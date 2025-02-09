@@ -5,5 +5,5 @@ The containerised ingest script will run via a Lambda function, controlled
 by EventBridge, and stored in AWS ECR.
 
 Here's a diagram of the system:
-![Project setup image]
+![assets/ISS API diagram.jpeg]
 
