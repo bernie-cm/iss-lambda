@@ -2,7 +2,7 @@
 todo
 
 # Docker files
-./docker-compose.yaml
+docker-compose.yaml
 
 # Database
 iss_location_data/
