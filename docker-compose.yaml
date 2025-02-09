@@ -3,7 +3,7 @@ services:
     image: postgres:13
     environment:
       - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=hacksaw-lullaby-viewing5
+      - POSTGRES_PASSWORD=******
       - POSTGRES_DB=iss-locations
     volumes:
       - "./iss_location_data:/var/lib/postgresql/data:rw"
