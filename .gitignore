@@ -1,1 +1,11 @@
+# Misc files
 todo
+
+# Docker files
+docker-compose.yaml
+
+# Database
+iss_location_data/
+
+# Virtual environment
+iss-locations/
