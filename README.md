@@ -4,6 +4,7 @@ and record location data in an Amazon RDS instance.
 The containerised ingest script will run via a Lambda function, controlled
 by EventBridge, and stored in AWS ECR.
 
-Here's a diagram of the system:
-![assets/ISS API diagram.jpeg]
+> [!NOTE]
+> Here's a diagram of the system:
 
+![Link](https://github.com/bernie-cm/iss-lambda/blob/main/assets/ISS%20API%20diagram.jpeg)
