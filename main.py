@@ -4,8 +4,8 @@ import argparse
 from sqlalchemy import create_engine
 
 def main(params):
-    username = params.username
-    password = params.password
+    user = params.u
+    password = params.p
 
     # Get the API response using requests package
     URL = "http://api.open-notify.org/iss-now.json"
@@ -27,7 +27,7 @@ def main(params):
         "longitude": data["iss_position"]["longitude"]
     }])
 
-    engine = create_engine(f"postgresql://{username}:{password}@localhost:5432/iss-locations")
+    engine = create_engine(f"postgresql://{user}:{password}@localhost:5432/iss-locations")
 
     # Only needed if table needs to be recreated
     # df.head(0).to_sql(name="iss-locations", con=engine, if_exists="replace", index=False)
