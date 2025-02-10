@@ -8,3 +8,8 @@ by EventBridge, and stored in AWS ECR.
 > Here's a diagram of the system:
 
 ![Link](https://github.com/bernie-cm/iss-lambda/blob/main/assets/ISS%20API%20diagram.jpeg)
+
+> [!IMPORTANT]
+> How to run the script
+
+`python3 main.py -u <username> -p <password>`
