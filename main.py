@@ -3,6 +3,10 @@ import pandas as pd
 import argparse
 from sqlalchemy import create_engine
 
+
+def convert_unix_to_iso(series: pd.Series) -> pd.Series:
+    return pd.to_datetime(series, unit='s').dt.strftime('%Y-%m-%dT%H:%M:%S')
+
 def main(params):
     user = params.u
     password = params.p
@@ -27,6 +31,9 @@ def main(params):
         "longitude": data["iss_position"]["longitude"]
     }])
 
+    df["timestamp"] = convert_unix_to_iso(df["timestamp"])
+
+    # Handle the database writing section
     engine = create_engine(f"postgresql://{user}:{password}@localhost:5432/iss-locations")
 
     # Only needed if table needs to be recreated
