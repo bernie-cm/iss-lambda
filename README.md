@@ -10,6 +10,6 @@ by EventBridge, and stored in AWS ECR.
 ![Link](https://github.com/bernie-cm/iss-lambda/blob/main/assets/ISS%20API%20diagram.png)
 
 > [!IMPORTANT]
-> How to run the script
+> How to run the script below
 
 `python3 main.py -u <username> -p <password>`
