@@ -10,6 +10,7 @@ def convert_unix_to_iso(series: pd.Series) -> pd.Series:
 def main(params):
     user = params.u
     password = params.p
+    host = params.h
 
     # Get the API response using requests package
     URL = "http://api.open-notify.org/iss-now.json"
@@ -34,7 +35,8 @@ def main(params):
     df["timestamp"] = convert_unix_to_iso(df["timestamp"])
 
     # Handle the database writing section
-    engine = create_engine(f"postgresql://{user}:{password}@localhost:5432/iss-locations")
+    # First create an engine to connect to the RDS database iss_locations_db
+    engine = create_engine(f"postgresql://{user}:{password}@{host}:5432/iss_locations_db")
 
     # Only needed if table needs to be recreated
     # df.head(0).to_sql(name="iss-locations", con=engine, if_exists="replace", index=False)
@@ -47,6 +49,16 @@ if __name__ == "__main__":
     # Create two CLI arguments to ask for username and password
     parser.add_argument("-u", help="username for Postgres")
     parser.add_argument("-p", help="password for Postgres")
+    parser.add_argument("-h", help="hostname for RDS Postgres server")
 
     args = parser.parse_args()
     main(args)
+
+
+docker run -it \
+  -e POSTGRES_USER="root" \
+  -e POSTGRES_PASSWORD="root" \
+  -e POSTGRES_DB="ny_taxi" \
+  -v /Users/bernardo/workspace/Data_engineering_course/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -p 5432:5432 \
+  postgres:13
