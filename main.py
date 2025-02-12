@@ -3,7 +3,6 @@ import pandas as pd
 import argparse
 from sqlalchemy import create_engine
 
-
 def convert_unix_to_iso(series: pd.Series) -> pd.Series:
     return pd.to_datetime(series, unit='s').dt.strftime('%Y-%m-%dT%H:%M:%S')
 
