@@ -7,7 +7,7 @@ by EventBridge, and stored in AWS ECR.
 > [!NOTE]
 > Here's a diagram of the system:
 
-![Link](https://github.com/bernie-cm/iss-lambda/blob/main/assets/ISS%20API%20diagram.jpeg)
+![Link](https://github.com/bernie-cm/iss-lambda/blob/main/assets/ISS%20API%20diagram.png)
 
 > [!IMPORTANT]
 > How to run the script
