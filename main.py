@@ -9,7 +9,7 @@ def convert_unix_to_iso(series: pd.Series) -> pd.Series:
 def main(params):
     user = params.u
     password = params.p
-    host = params.h
+    host = params.host
 
     # Get the API response using requests package
     URL = "http://api.open-notify.org/iss-now.json"
@@ -38,8 +38,8 @@ def main(params):
     engine = create_engine(f"postgresql://{user}:{password}@{host}:5432/iss_locations_db")
 
     # Only needed if table needs to be recreated
-    # df.head(0).to_sql(name="iss-locations", con=engine, if_exists="replace", index=False)
-    df.to_sql(name="iss-locations", con=engine, if_exists="append", index=False)
+    # df.head(0).to_sql(name="iss_locations", con=engine, if_exists="replace", index=False)
+    df.to_sql(name="iss_locations", con=engine, if_exists="append", index=False)
 
 if __name__ == "__main__":
     # Create the CLI parser
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     # Create two CLI arguments to ask for username and password
     parser.add_argument("-u", help="username for Postgres")
     parser.add_argument("-p", help="password for Postgres")
-    parser.add_argument("-h", help="hostname for RDS Postgres server")
+    parser.add_argument("--host", help="hostname for RDS Postgres server")
 
     args = parser.parse_args()
     main(args)
