@@ -1,15 +1,16 @@
 import requests
 import pandas as pd
-import argparse
+import os
 from sqlalchemy import create_engine
 
 def convert_unix_to_iso(series: pd.Series) -> pd.Series:
     return pd.to_datetime(series, unit='s').dt.strftime('%Y-%m-%dT%H:%M:%S')
 
-def main(params):
-    user = params.u
-    password = params.p
-    host = params.host
+def main():
+    # Read database credentials from environment variables
+    user = os.getenv("POSTGRES_USER")
+    password = os.getenv("POSTGRES_PASSWORD")
+    host = os.getenv("POSTGRES_HOST")
 
     # Get the API response using requests package
     URL = "http://api.open-notify.org/iss-now.json"
@@ -42,13 +43,4 @@ def main(params):
     df.to_sql(name="iss_locations", con=engine, if_exists="append", index=False)
 
 if __name__ == "__main__":
-    # Create the CLI parser
-    parser = argparse.ArgumentParser(description="Call ISS API and store current position in Amazon RDS")
-
-    # Create two CLI arguments to ask for username and password
-    parser.add_argument("-u", help="username for Postgres")
-    parser.add_argument("-p", help="password for Postgres")
-    parser.add_argument("--host", help="hostname for RDS Postgres server")
-
-    args = parser.parse_args()
-    main(args)
+    main()
