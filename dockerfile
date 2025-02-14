@@ -5,4 +5,4 @@ RUN pip install pandas sqlalchemy requests
 WORKDIR /app
 COPY main.py main.py
 
-CMD ["main.py"]
+ENTRYPOINT ["python3", "main.py"]
