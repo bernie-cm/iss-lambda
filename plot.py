@@ -3,15 +3,18 @@ import os
 from sqlalchemy import create_engine
 
 def main():
-    connect_to_database():
-        pass
+    # Step 1: establish the connection to the AWS RDS db
+    connect_to_database()
 
-    convert_sql_table_to_df(sql_table):
-        pass
+    # With connection established, read all the data from the table
+    # This should give you a dataframe to pass to the next plotting function
+    dataframe = convert_sql_table_to_df(sql_table)
 
-    create_plot(dataframe):
-        pass
+    # Having read all the data from Postgres db
+    # Call the plotting function
+    create_plot(dataframe)
 
+# ------ FUNCTION DEFINITIONS ------ 
 def connect_to_database():
     # Read database credentials from environment variables
     user = os.getenv("POSTGRES_USER")
