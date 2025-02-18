@@ -60,8 +60,8 @@ def convert_sql_table_to_df(table_name, engine):
     return df
     
 
-#def create_plot(df):
-#    pass
+def create_plot(df):
+    pass
 
 
 
