@@ -19,7 +19,7 @@ def main():
 
 # ------ FUNCTION DEFINITIONS ------ 
 def connect_to_database():
-    '''
+    """
     Establishes a connection to a PostgreSQL database using environment variables.
 
     This function reads database credentials from environment variables and creates
@@ -32,7 +32,7 @@ def connect_to_database():
 
     Returns:
         sqlalchemy.engine.Engine: A SQLAlchemy engine instance connected to the database.
-    '''
+    """
     user = os.getenv("POSTGRES_USER")
     password = os.getenv("POSTGRES_PASSWORD")
     host = os.getenv("POSTGRES_HOST")
@@ -41,10 +41,22 @@ def connect_to_database():
     return engine
 
 def convert_sql_table_to_df(table_name, engine):
-    
-    df = pd.read_sql_table(table_name, engine)   
+    """
+    Reads a SQL table into a pandas DataFrame.
 
-    # This function should return a dataframe
+    This function queries an entire table from the database and converts it into
+    a pandas DataFrame for further analysis or processing.
+
+    Args:
+        table_name (str): Name of the SQL table to read.
+        engine (sqlalchemy.engine.Engine): SQLAlchemy engine instance connected
+            to the database.
+
+    Returns:
+        pandas.DataFrame: DataFrame containing all rows and columns from the
+            specified table.
+    """
+    df = pd.read_sql_table(table_name, engine)   
     return df
     
 
