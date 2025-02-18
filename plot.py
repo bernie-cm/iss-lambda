@@ -6,7 +6,7 @@ DATABASE = "iss_locations_db"
 TABLE = "iss_locations"
 
 def main():
-    # Step 1: establish the connection to the AWS RDS db
+    # Establish the connection to the AWS RDS db
     db_engine = connect_to_database()
 
     # With connection established, read all the data from the table
