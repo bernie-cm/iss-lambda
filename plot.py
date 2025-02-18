@@ -15,22 +15,33 @@ def main():
 
     # Having read all the data from Postgres db
     # Call the plotting function
-    # create_plot(dataframe)
-    print(dataframe)
+    create_plot(dataframe)
 
 # ------ FUNCTION DEFINITIONS ------ 
 def connect_to_database():
-    # Read database credentials from environment variables
+    '''
+    Establishes a connection to a PostgreSQL database using environment variables.
+
+    This function reads database credentials from environment variables and creates
+    a SQLAlchemy engine connection to a PostgreSQL database.
+
+    Required Environment Variables:
+        POSTGRES_USER: Database username
+        POSTGRES_PASSWORD: Database password
+        POSTGRES_HOST: Database host address
+
+    Returns:
+        sqlalchemy.engine.Engine: A SQLAlchemy engine instance connected to the database.
+    '''
     user = os.getenv("POSTGRES_USER")
     password = os.getenv("POSTGRES_PASSWORD")
     host = os.getenv("POSTGRES_HOST")
 
-    # Create the engine connection
     engine = create_engine(f"postgresql://{user}:{password}@{host}:5432/{DATABASE}")
     return engine
 
 def convert_sql_table_to_df(table_name, engine):
-    # This should be changed to read from the database rather than writing to the database
+    
     df = pd.read_sql_table(table_name, engine)   
 
     # This function should return a dataframe
