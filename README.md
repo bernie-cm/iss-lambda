@@ -1,3 +1,4 @@
+![Link](https://github.com/bernie-cm/iss-lambda/blob/main/assets/iss_project_banner.png)
 # ISS Location Tracker
 This small project consists of an ETL processor and pipeline that obtains the International Space Station's location in real-time using the ISS Open API. The processor writes historical positional data in an Amazon RDS Postgres database, and simulates a user who needs visualisation capabilities as a use case.
 
