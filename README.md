@@ -28,24 +28,14 @@ cd iss-lambda
 - Create Lambda function.
 - Configure EventBridge schedule.
 3. **Environment variables**
-
-
-
-    user = os.getenv("POSTGRES_USER")
-    password = os.getenv("POSTGRES_PASSWORD")
-    host = os.getenv("POSTGRES_HOST")
-
-will call the ISS Open API at regular 10 min intervals
-and record location data in an Amazon RDS instance.
-The containerised ingest script will run via a Lambda function, controlled
-by EventBridge, and stored in AWS ECR.
+```
+POSTGRES_USER=your_username
+POSTGRES_PASSWORD=your_password
+POSTGRES_HOST=your_rds_endpoint
+```
 
 > [!NOTE]
 > Here's a diagram of the system:
 
 ![Link](https://github.com/bernie-cm/iss-lambda/blob/main/assets/ISS%20API%20diagram.png)
 
-> [!IMPORTANT]
-> How to run the script below
-
-`python3 main.py -u <username> -p <password>`
