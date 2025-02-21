@@ -4,9 +4,29 @@ import os
 from sqlalchemy import create_engine
 
 def convert_unix_to_iso(series: pd.Series) -> pd.Series:
+    """
+    Convert Unix timestamps to ISO 8601 formatted datetime strings.
+
+    Args:
+        series (pd.Series): Series containing Unix timestamps
+
+    Returns:
+        pd.Series: Series with timestamps in ISO format (YYYY-MM-DDTHH:MM:SS)
+    """
     return pd.to_datetime(series, unit='s').dt.strftime('%Y-%m-%dT%H:%M:%S')
 
 def main():
+    """
+    Fetch ISS location data from the Open Notify API and store in PostgreSQL database.
+    
+    Environment Variables:
+        POSTGRES_USER: Database username
+        POSTGRES_PASSWORD: Database password
+        POSTGRES_HOST: Database host address
+
+    Raises:
+        Exception: If API request fails or database connection errors occur
+    """
     # Read database credentials from environment variables
     user = os.getenv("POSTGRES_USER")
     password = os.getenv("POSTGRES_PASSWORD")
