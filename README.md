@@ -33,9 +33,39 @@ POSTGRES_USER=your_username
 POSTGRES_PASSWORD=your_password
 POSTGRES_HOST=your_rds_endpoint
 ```
-
 > [!NOTE]
 > Here's a diagram of the system:
 
 ![Link](https://github.com/bernie-cm/iss-lambda/blob/main/assets/ISS%20API%20diagram.png)
+4. **Build and push Docker image**
+```bash
+code goes here
+```
+## Project structure
+```bash
+insert tree output here
+```
+## Database schema
+```sql
+CREATE TABLE iss_locations (
+    id SERIAL PRIMARY KEY,
+    timestamp TIMESTAMP,
+    latitude DECIMAL(9,6),
+    longitude DECIMAL(9,6),
+);
+```
+## API reference
+The project uses the ISS Open API:
+- Endpoint: `http://api.open-notify.org/iss-now.json`
+- No authentication required
+- Rate limit: 1 request per second
+## Deployment
+1. Update environment variables in AWS Lambda.
+2. Deploye Docker image to ECR.
+3. Configure EventBridge to use a schedule rule.
+4. Test the pipeline.
+## Contributing
+1. Fork the repository.
+2. Create feature branch.
+3. Submit pull request.
 
