@@ -16,8 +16,7 @@ def main():
 
     # Having read all the data from Postgres db
     # Call the plotting function
-    #create_plot(dataframe)
-    print(dataframe.head(5))
+    create_plot(dataframe)
 
 # ------ FUNCTION DEFINITIONS ------ 
 def connect_to_database():
@@ -63,9 +62,45 @@ def convert_sql_table_to_df(table_name, engine):
     
 
 def create_plot(df):
-    pass
+    # Generate colors dynamically (gradient effect)
+    colors = ["red", "orange", "yellow", "green", "blue"]
+
+    # Create 3D globe
+    fig = go.Figure()
+
+    # Add the ISS path with color markers
+    fig.add_trace(go.Scattergeo(
+        lon=df["longitude"],
+        lat=df["latitude"],
+        mode='lines+markers',
+        marker=dict(
+            size=8,
+            color=colors,  # Assign color based on order
+            opacity=0.8
+        ),
+        line=dict(width=2, color="cyan"),  # Change the ISS path color here
+        text=df["timestamp"],  # Hover text
+        name="ISS Path"
+    ))
+    # Customizing the globe
+    fig.update_layout(
+        title="🚀 ISS Path Over Time",
+        geo=dict(
+            projection_type="orthographic",  # 3D globe effect
+            showland=True,
+            landcolor="lightgray",
+            showocean=True,
+            oceancolor="darkblue",
+            showcoastlines=True,
+            coastlinecolor="white",
+            showframe=False,
+        )
+    )
+
+    # Show interactive globe
+    fig.show()
 
 
-
+# ---- CALL THE MAIN FUNCTION ------
 if __name__ == "__main__":
     main()
