@@ -47,7 +47,16 @@ docker push aws_account_id.dkr.ecr.region.amazonaws.com/iss-tracker:latest
 ```
 ## Project structure
 ```bash
-insert tree output here
+iss-lambda
+├── README.md
+├── assets
+│   ├── ISS API diagram.png
+│   ├── ISS_plot.png
+│   └── iss_project_banner.png
+├── docker-compose.yaml
+├── dockerfile
+├── main.py
+└── plot.py
 ```
 ## Database schema
 ```sql
