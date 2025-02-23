@@ -40,7 +40,10 @@ POSTGRES_HOST=your_rds_endpoint
 ![Link](https://github.com/bernie-cm/iss-lambda/blob/main/assets/ISS%20API%20diagram.png)
 4. **Build and push Docker image**
 ```bash
-code goes here
+docker build -t iss-tracker .
+aws ecr get-login-password --region region | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.region.amazonaws.com
+docker tag iss-tracker:latest aws_account_id.dkr.ecr.region.amazonaws.com/iss-tracker:latest
+docker push aws_account_id.dkr.ecr.region.amazonaws.com/iss-tracker:latest
 ```
 ## Project structure
 ```bash
