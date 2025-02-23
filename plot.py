@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 from sqlalchemy import create_engine
+import plotly.graph_objects as go
 
 DATABASE = "iss_locations_db"
 TABLE = "iss_locations"
@@ -16,7 +17,7 @@ def main():
     # Having read all the data from Postgres db
     # Call the plotting function
     #create_plot(dataframe)
-    print(dataframe)
+    print(dataframe.head(5))
 
 # ------ FUNCTION DEFINITIONS ------ 
 def connect_to_database():
