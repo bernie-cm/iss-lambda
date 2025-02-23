@@ -62,6 +62,22 @@ def convert_sql_table_to_df(table_name, engine):
     
 
 def create_plot(df):
+    """
+    Creates an interactive 3D globe visualization of the ISS path using Plotly.
+    
+    The function plots the ISS trajectory on an orthographic projection with color-coded
+    markers and a cyan path line. The visualization includes land masses, oceans, and
+    coastlines with hover functionality showing timestamps at each point.
+    
+    Parameters:
+        df (pandas.DataFrame): DataFrame containing ISS position data with columns:
+            - latitude: Latitude coordinates of the ISS
+            - longitude: Longitude coordinates of the ISS
+            - timestamp: Corresponding timestamps for each position
+    
+    Returns:
+        None: Displays the interactive plot using plotly.Figure.show()
+    """
     # Generate colors dynamically (gradient effect)
     colors = ["red", "orange", "yellow", "green", "blue"]
 
