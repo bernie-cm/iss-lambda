@@ -15,7 +15,8 @@ def main():
 
     # Having read all the data from Postgres db
     # Call the plotting function
-    create_plot(dataframe)
+    #create_plot(dataframe)
+    print(dataframe)
 
 # ------ FUNCTION DEFINITIONS ------ 
 def connect_to_database():
