@@ -66,7 +66,7 @@ def create_plot(df):
     Creates an interactive 3D globe visualisation of the ISS path using Plotly.
     
     The function plots the ISS trajectory on an orthographic projection with color-coded
-    markers and a cyan path line. The visualization includes land masses, oceans, and
+    markers and a cyan path line. The visualisation includes land masses, oceans, and
     coastlines with hover functionality showing timestamps at each point.
     
     Parameters:
@@ -98,7 +98,7 @@ def create_plot(df):
         text=df["timestamp"],  # Hover text
         name="ISS Path"
     ))
-    # Customizing the globe
+    # Customising the globe
     fig.update_layout(
         title="🚀 ISS Path Over Time",
         geo=dict(
