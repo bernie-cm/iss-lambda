@@ -63,7 +63,7 @@ def convert_sql_table_to_df(table_name, engine):
 
 def create_plot(df):
     """
-    Creates an interactive 3D globe visualization of the ISS path using Plotly.
+    Creates an interactive 3D globe visualisation of the ISS path using Plotly.
     
     The function plots the ISS trajectory on an orthographic projection with color-coded
     markers and a cyan path line. The visualization includes land masses, oceans, and
