@@ -45,6 +45,8 @@ aws ecr get-login-password --region region | docker login --username AWS --passw
 docker tag iss-tracker:latest aws_account_id.dkr.ecr.region.amazonaws.com/iss-tracker:latest
 docker push aws_account_id.dkr.ecr.region.amazonaws.com/iss-tracker:latest
 ```
+## Visualisation output
+![Link](https://github.com/bernie-cm/iss-lambda/blob/main/assets/ISS_plot.png)
 ## Project structure
 ```bash
 iss-lambda
